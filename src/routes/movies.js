@@ -6,17 +6,17 @@ const data = require('../movies.json');
 const srvMovies = require('../service/service-movies');
 const { Client } = require('pg')
 
-const client = new Client({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'postgres',
-    password: 'admin',
-    port: 5432,
-  })
-  client.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
+// const client = new Client({
+//     user: 'postgres',
+//     host: 'localhost',
+//     database: 'postgres',
+//     password: 'admin',
+//     port: 5432,
+//   })
+//   client.connect(function(err) {
+//     if (err) throw err;
+//     console.log("Connected!");
+//   });
 //Movies
 router.get('/', async (req, res) => {
     const promiseMovies = await client.query("select * from public.movies;");
